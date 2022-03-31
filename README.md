@@ -11,7 +11,7 @@ Data were accessed from the pbmc68k paper associated with the following GitHub r
 
 3. Plots: _Scripts for the visualization of all figures contained in the paper can be found here._
 
-
+All scripts for preprocessing, training and analysis have been included in the repository. Normalized counts and cross-fold data have not been included due to space constraints on Git.
 
 
 _All training, validation and testing was run on the RIT-HPC compute cluster at the Hospital for Sick Children, Toronto, ON. Scripts were completed using CPU resources with Xeon E5-2670 v2 and Xeon Gold 6140 cores and usage of GPU resources due to cluster access limitations. All jobs requested 1 node, 32 processors and a flexible amount of RAM as required by the specific method. Scripts were run in R version 4.1.2 and Python 3.8.1. _
