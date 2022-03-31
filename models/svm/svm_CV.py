@@ -15,7 +15,7 @@ from joblib import load
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 # Cross-fold names
-cvs = ["cv2"]
+cvs = ["cv1"]
 
 acc = []
 cm = []
