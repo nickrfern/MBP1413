@@ -1,4 +1,4 @@
-Scripts for training, validating and testing models.
+Scripts for training, validating and testing models. The final predictions for each model can be found in all_y_pred
 
 **Brief Summary of Model Training Pipeline**
 1. **{ModelName_CV}:** _We trained each of our models on the 5-folds of normalized data prepared in our preprocessing stage. Each CV script searches multiple hyperparameter arguments for each model and returns an accuracy, training time and confusion matrix as its output._
