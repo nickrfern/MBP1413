@@ -1,25 +1,15 @@
 library(SingleR)
-library(caret)
 
-sessionInfo()
 
 print("Loading train x...")
 x.train <- read.csv("/hpf/largeprojects/tabori/users/yuan/mbp1413/data/train_test_val/train_cv/pbmc68k_norm_x_train.csv")
-print(head(rownames(x.train)))
-print(head(colnames(x.train)))
 rownames(x.train) <- x.train[,1]
 x.train <- x.train[,-1]
-print(head(rownames(x.train)))
-print(head(colnames(x.train)))
 
 print("Loading test x...")
 x.test <- read.csv("/hpf/largeprojects/tabori/users/yuan/mbp1413/data/train_test_val/test_cv/pbmc68k_norm_x_test.csv")
-print(head(rownames(x.test)))
-print(head(colnames(x.test)))
 rownames(x.test) <- x.test[,1]
 x.test <- x.test[,-1]
-print(head(rownames(x.test)))
-print(head(colnames(x.test)))
 
 print("Loading train y...")
 y.train <- read.csv("/hpf/largeprojects/tabori/users/yuan/mbp1413/data/train_test_val/train_cv/raw_data/pbmc68k_y_train.csv")
@@ -43,11 +33,8 @@ print("Running SingleR...")
 pred <- SingleR(test = x.test, ref = x.train, assay.type.test=1, labels = ref.exp@colData@listData[["x"]])
 saveRDS(pred, file = "/hpf/largeprojects/tabori/users/yuan/mbp1413/output/singler/pred.rds")
 
-#pred.lab <- factor(pred$labels)
-#true.lab <- factor(y.test$label)
-
 df <- data.frame(pred = pred$labels,
-                 true = y.test$label)
+                 true = y.test$x)
 
 write.csv(df, "/hpf/largeprojects/tabori/users/yuan/mbp1413/output/singler/pred.csv")
 
