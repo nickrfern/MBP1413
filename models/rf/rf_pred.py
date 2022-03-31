@@ -9,6 +9,7 @@ print("Loading Packages")
 
 import numpy as np
 import pandas as pd
+import time
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score
@@ -63,7 +64,11 @@ for i in cvs:
     y_val = list(labels_val["x"])
 
     rf = RandomForestClassifier(n_estimators = n_estimators, max_depth = max_depth, min_samples_split = min_samples_split, min_samples_leaf = min_samples_leaf, random_state = 33)
+    start = time.time()
     rf_model = rf.fit(X_train, y_train)
+    end = time.time()
+    
+    print(end - start)
     
     pred = rf_model.predict(X_val)
     pred_cm = confusion_matrix(y_val, pred)
