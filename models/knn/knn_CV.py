@@ -24,7 +24,7 @@ k_range = [4,5,6,8,10,30,50,70,99]
 records = pd.DataFrame(columns=['metrics','train_acc','val_acc','matrix'])
 
 ###
-for cv in range(4,5):
+for cv in range(1,6):
   X_train,X_validation,y_train,y_validation,X_test,y_test= loadData(cv)
   del X_test,y_test
   gc.collect()
