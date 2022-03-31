@@ -41,26 +41,26 @@ for cv in range(5,6):
     record_metric = utils.history(lgr,X_train,y_train,X_validation,y_validation,metric,matrix)
     records = records.append(record_metric,ignore_index=True)
 
-    # ####save model
-    # if i == 0:
-    #   time_used=end-start
-    #   acc = np.mean(record_metric['val_acc'])
-    #   ##change code
-    #   variabels=metric
-    #   filename = f'{OUTPUT}lgr_model.sav'
-    #   pickle.dump(lgr, open(filename, 'wb'))
-    # elif np.mean(record_metric['val_acc'])>acc:
-    #   acc=np.mean(record_metric['val_acc'])
-    #   variabels=metric
-    #   time_used=end-start
-    #   pickle.dump(lgr, open(filename, 'wb'))
-    #   print('dumped')
-    # ##########
+    ####save model
+    if i == 0:
+      time_used=end-start
+      acc = np.mean(record_metric['val_acc'])
+      ##change code
+      variabels=metric
+      filename = f'{OUTPUT}lgr_model.sav'
+      pickle.dump(lgr, open(filename, 'wb'))
+    elif np.mean(record_metric['val_acc'])>acc:
+      acc=np.mean(record_metric['val_acc'])
+      variabels=metric
+      time_used=end-start
+      pickle.dump(lgr, open(filename, 'wb'))
+      print('dumped')
+    ##########
 
-  ##final Model test accuracies
-  # loaded_model = pickle.load(open(filename, 'rb'))
-  # matrix = confusion_matrix(y_test,loaded_model.predict(X_test),labels=np.unique(y_test))
-  # records = records.append({'metrics': variabels,'train_acc':time_used,'val_acc': accuracy_score(y_test, loaded_model.predict(X_test)),'matrix':matrix},ignore_index=True)
+  #final Model test accuracies
+  loaded_model = pickle.load(open(filename, 'rb'))
+  matrix = confusion_matrix(y_test,loaded_model.predict(X_test),labels=np.unique(y_test))
+  records = records.append({'metrics': variabels,'train_acc':time_used,'val_acc': accuracy_score(y_test, loaded_model.predict(X_test)),'matrix':matrix},ignore_index=True)
 
   ##change code
   records.to_csv(f'{OUTPUT}lgr_records_cv5.csv')
