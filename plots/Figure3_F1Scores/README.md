@@ -3,4 +3,4 @@
 
 2. **f1_by_class.py:** _Calculates f-1 scores for each class and model in both all_y_pred and grouped_y_pred, returning them as f1.csv and f1.group.csv, respectively._
 
-3. **plot_f1_heatmaps:** _Takes f1.csv and f1.group.csv and plots them as a heatmap using the ggplot2 package._
+3. **plot_f1_heatmaps:** _Takes f1.csv and f1.group.csv and plots them as a heatmap using the ggplot2 package, returning figure3.pdf._
